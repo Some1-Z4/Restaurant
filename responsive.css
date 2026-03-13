@@ -1,0 +1,337 @@
+@media (min-width:2000px){
+
+.main{
+    max-width:1500px;
+    margin:auto;
+}
+
+#productCont{
+    grid-template-columns:repeat(3,1fr);
+}
+
+}
+
+@media (max-width:1800px){
+
+.main{
+    width:100%;
+    max-width:1400px;
+    margin:0 auto;
+}
+
+#filter{
+    width:28%;
+}
+
+#productCont{
+    grid-template-columns:repeat(3,1fr);
+}
+
+#header{
+    gap:300px;
+}
+
+.home-car-bar{
+    padding-left:300px;
+}
+
+}
+
+
+/* ================= LAPTOP ================= */
+
+@media (max-width:1300px){
+
+.main{
+    max-width:90%;
+}
+
+#productCont{
+    grid-template-columns: repeat(2,1fr);
+}
+
+#filter{
+    width:35%;
+}
+
+#header{
+    gap:200px;
+}
+
+.home-car-bar{
+    padding-left:200px;
+}
+
+}
+
+
+/* ================= TABLET ================= */
+
+@media (max-width:1192px){
+
+.top{
+    width:95%;
+    height:350px;
+}
+
+.top h1{
+    font-size:32px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    text-align: center;
+    padding: 0 16px;
+}
+
+.main{
+    flex-direction:column;
+    align-items:center;
+}
+
+#filter{
+    width:100%;
+}
+
+#productCont{
+    grid-template-columns: repeat(2,1fr);
+}
+
+.card{
+    width:100%;
+}
+
+.card-body h5 {
+    text-align: center;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+}
+
+#buttons{
+    width:90%;
+    flex-wrap:wrap;
+}
+
+#header{
+    gap:100px;
+}
+
+.home-car-bar{
+    padding-left:100px;
+}
+
+.cart-table-header,
+.cart-item{
+    grid-template-columns: 40px 1fr 100px 80px 80px;
+}
+
+}
+
+
+/* ================= PHONE ================= */
+
+@media (max-width:768px){
+
+.top{
+    height:280px;
+}
+
+.top h1{
+    font-size:22px;
+    text-align:center;
+    padding:0 20px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+}
+
+#productCont{
+    grid-template-columns:1fr;
+}
+
+.card{
+    width:100%;
+}
+
+.card-body h5 {
+    font-size: 15px;
+    text-align: center;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-width: 100%;
+}
+
+.card-body {
+    padding: 12px 10px;
+}
+
+#buttons{
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+#buttons button{
+    font-size:16px;
+    height:45px;
+}
+
+.categories{
+    padding:30px;
+}
+
+#header{
+    padding:0 20px;
+    gap:40px;
+}
+
+.logo-text{
+    font-size:18px;
+}
+
+.home-car-bar{
+    padding-left:20px;
+}
+
+.cart-table-header{
+    display:none;
+}
+
+.cart-item{
+    grid-template-columns:1fr;
+    gap:10px;
+}
+
+.qty-control{
+    justify-content:center;
+}
+
+.cart-footer{
+    align-items:center;
+}
+
+/* ===== BURGER ===== */
+.burger{
+    display:flex;
+}
+
+.header-box{
+    position:absolute;
+    top:100px;
+    left:0;
+    width:100%;
+    background:#3c4348;
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+    padding:20px 0;
+    display:none;
+}
+
+.header-box.active{
+    display:flex;
+}
+
+}
+
+
+/* ================= SMALL PHONE ================= */
+
+@media (max-width:480px){
+
+.top{
+    height:220px;
+}
+
+.top h1{
+    font-size:18px;
+    padding: 0 24px;
+    text-align: center;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    line-height: 1.4;
+    margin-top: 100px;
+}
+
+.logo-text{
+    display:none;
+}
+
+#header{
+    justify-content:space-between;
+    gap:10px;
+}
+
+.card img{
+    height:140px;
+}
+
+.card{
+    height:auto;
+}
+
+.card-body h5{
+    font-size:15px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+}
+
+.price{
+    font-size:16px;
+}
+
+.btn-checkout{
+    width:100%;
+}
+
+.cart-section{
+    padding:20px 10px;
+}
+
+/* Prevent any item-info text from overflowing */
+.item-info span {
+    font-size: 13px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 140px;
+}
+
+}
+
+
+/* ===== BURGER ANIMATION ===== */
+
+.burger {
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 200;
+    padding: 4px;
+}
+
+.burger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1),
+                opacity 0.25s ease,
+                width 0.3s ease;
+    transform-origin: center;
+}
+
+/* X animation when active */
+.burger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.burger.active span:nth-child(2) {
+    opacity: 0;
+    width: 0;
+}
+
+.burger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./cart.css">
+    <link rel="stylesheet" href="./responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+   
+    <header id="header">
+        <div class="logo">
+            <a href="index.html">
+                <span class="logo-icon">🍜</span>
+                <span class="logo-text">Step<span class="logo-accent">Ordering</span></span>
+            </a>
+        </div>
+
+        <div class="burger" id="burger">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+       
+
+        <div class="header-box">
+            <a href="index.html" class="nav-home"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="cart.html" class="nav-cart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </a>
+        </div>
+    </header>
+
+  
+     <div class="top">
+            <img src="https://biggerbetterbanner.com/wp-content/uploads/2021/03/Buffet-Food-scaled.jpg" alt="">
+            <h1>My Cart</h1>
+        </div>
+
+    
+    <div class="home-car-bar">
+        <a href="index.html">Home</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <span>Cart</span>
+    </div>
+
+  
+    <div class="cart-section">
+        <h2>Cart</h2>
+
+        <div class="cart-table" id="cartTable">
+            <div class="cart-table-header">
+                <div></div>
+                <div>Product</div>
+                <div>Qty</div>
+                <div>Price</div>
+                <div>Total</div>
+            </div>
+            <div id="cartItems"></div>
+        </div>
+
+        <div class="empty-cart" id="emptyCart">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <p>Your cart is empty!</p>
+        </div>
+
+        <div class="cart-footer" id="cartFooter">
+            <div class="cart-total">Total : <span id="totalPrice">$0</span></div>
+            <button class="btn-checkout">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>© Step Ordering 2026, All rights reserved</p>
+    </footer>
+   <script src="./cart.js"></script>
+   <script src="./scroll.js"></script>
+</body>
+</html>
