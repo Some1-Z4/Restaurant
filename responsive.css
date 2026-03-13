@@ -478,6 +478,7 @@ body.no-transitions * {
 
 .top{
     height:220px;
+    width: 100vh;
 }
 
 .top h1{
@@ -535,6 +536,7 @@ body.no-transitions * {
 }
 
 }
+
 
 
 /* ===== ANIMATION ===== */
