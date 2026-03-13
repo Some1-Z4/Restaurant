@@ -357,7 +357,8 @@
         .empty-cart i {
             font-size: 60px;
             margin-bottom: 16px;
-            color: #ddd;
+            color: #747373;
+            text-shadow: 0 4px 14px rgba(0,0,0,0.5)
         }
 
         .empty-cart p {
