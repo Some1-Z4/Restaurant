@@ -40,6 +40,10 @@ body {
     z-index: -1;
 }
 
+.mirror-img {
+    transform: scaleX(-1);
+}
+
 .categories {
     padding: 50px;
     margin-bottom: 20px;
@@ -159,7 +163,6 @@ body {
     justify-content: center;          
     padding: 10px 20px;  
     border: none;
-    
 }
 
 #buttons button {
@@ -173,6 +176,7 @@ body {
     font-size: 20px;
     font-weight: 500;
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 #buttons button:hover {

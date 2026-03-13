@@ -26,7 +26,7 @@ function renderCart(items) {
     cartTable.style.display = "block"
     cartFooter.style.display = "flex"
     emptyCart.style.display = "none"
-    cartCount.textContent = items.length
+    cartCount.textContent = items.reduce((sum, item) => sum + item.quantity, 0)
     cartItems.innerHTML = ""
 
     let total = 0

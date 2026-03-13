@@ -1,3 +1,11 @@
+/* ===== GLOBAL: delete/edit buttons side by side ===== */
+.item-actions {
+    flex-direction: row !important;
+    align-items: center;
+    gap: 8px;
+    min-width: 60px;
+}
+
 @media (min-width:2000px){
 
 .main{
@@ -11,7 +19,62 @@
 
 }
 
+@media (max-width:1500px){
+    #buttons {
+    display: flex;
+    width: 65%;
+    gap: 15px;
+    justify-content: center;          
+    padding: 10px 20px;  
+    border: none;
+}
+
+#buttons button {
+    padding: 10px 20px;
+    background-color: #fcfcfc; 
+    color: black;
+    height: 55px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+}
+
+@media (max-width:1380px){
+    #buttons {
+    display: flex;
+    width: 65%;
+    gap: 15px;
+    justify-content: center;          
+    padding: 10px 20px;  
+    border: none;
+}
+
+#buttons button {
+    padding: 10px 20px;
+    background-color: #fcfcfc; 
+    color: black;
+    height: 55px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+}
+
+
 @media (max-width:1800px){
+    .top{
+    width:85%;
+    height:350px;
+}
 
 .main{
     width:100%;
@@ -42,6 +105,11 @@
 
 @media (max-width:1300px){
 
+    .top{
+    width:90%;
+    height:350px;
+}
+
 .main{
     max-width:90%;
 }
@@ -61,6 +129,38 @@
 .home-car-bar{
     padding-left:200px;
 }
+
+.qty-control {
+    margin-right: auto;
+}
+
+.cart-table-header,
+.cart-item {
+    grid-template-columns: 50px 1fr 160px 90px 90px;
+}
+#buttons {
+    display: flex;
+    width: 65%;
+    gap: 15px;
+    justify-content: center;          
+    padding: 10px 20px;  
+    border: none;
+}
+
+#buttons button {
+    padding: 10px 20px;
+    background-color: #fcfcfc; 
+    color: black;
+    height: 55px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
 
 }
 
@@ -111,6 +211,21 @@
     flex-wrap:wrap;
 }
 
+#buttons button {
+    padding: 10px 20px;
+    background-color: #fcfcfc; 
+    color: black;
+    height: 55px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+
 #header{
     gap:100px;
 }
@@ -121,11 +236,31 @@
 
 .cart-table-header,
 .cart-item{
-    grid-template-columns: 40px 1fr 100px 80px 80px;
+    grid-template-columns: 70px 1fr 150px 90px 90px;
 }
 
 }
 
+@media (min-width:769px){
+    .header-box {
+        position: static !important;
+        display: flex !important;
+        flex-direction: row !important;
+        opacity: 1 !important;
+        pointer-events: all !important;
+        transform: none !important;
+        background: transparent !important;
+        backdrop-filter: none !important;
+        box-shadow: none !important;
+        border: none !important;
+        padding: 0 !important;
+        gap: 20px !important;
+    }
+}
+
+body.no-transitions * {
+    transition: none !important;
+}
 
 /* ================= PHONE ================= */
 
@@ -197,8 +332,84 @@
 }
 
 .cart-item{
-    grid-template-columns:1fr;
-    gap:10px;
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    grid-template-rows: auto auto auto auto;
+    gap: 10px;
+    padding: 16px;
+}
+
+.item-actions {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: center;
+    justify-content: flex-start;
+}
+
+.item-info {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+}
+
+.qty-control {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-right: 0;
+    justify-content: flex-start;
+}
+
+.item-price {
+    grid-column: 1 / -1;
+    grid-row: 3;
+}
+
+.item-total {
+    grid-column: 1 / -1;
+    grid-row: 4;
+}
+
+.qty-control::before {
+    content: "QTY";
+    font-size: 11px;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+.qty-control {
+    display: flex;
+    align-items: center;
+    margin-right: 0;
+}
+
+.item-price::before {
+    content: "PRICE  ";
+    font-size: 11px;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-right: 8px;
+}
+
+.item-total::before {
+    content: "TOTAL  ";
+    font-size: 11px;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-right: 8px;
+}
+
+.item-price,
+.item-total {
+    display: flex;
+    align-items: center;
 }
 
 .qty-control{
@@ -219,16 +430,43 @@
     top:100px;
     left:0;
     width:100%;
-    background:#3c4348;
+    background: rgba(30, 30, 40, 0.45);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255,255,255,0.06);
     flex-direction:column;
     align-items:center;
-    gap:20px;
-    padding:20px 0;
-    display:none;
+    gap:24px;
+    padding:28px 0;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+
+    /* hidden by default — animatable */
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .header-box.active{
-    display:flex;
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+}
+
+.header-box .nav-home {
+    font-size: 17px;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: 0.5px;
+}
+
+.header-box .nav-home:hover {
+    color: #ff6b35;
+}
+
+.header-box .nav-cart {
+    box-shadow: 0 4px 20px rgba(255,107,53,0.5);
 }
 
 }
@@ -289,7 +527,6 @@
     padding:20px 10px;
 }
 
-/* Prevent any item-info text from overflowing */
 .item-info span {
     font-size: 13px;
     word-break: break-word;
@@ -300,7 +537,7 @@
 }
 
 
-/* ===== BURGER ANIMATION ===== */
+/* ===== ANIMATION ===== */
 
 .burger {
     flex-direction: column;
@@ -322,7 +559,7 @@
     transform-origin: center;
 }
 
-/* X animation when active */
+
 .burger.active span:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
 }

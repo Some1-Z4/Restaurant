@@ -160,3 +160,5 @@ async function updateCartCount() {
 
     document.querySelector(".cart-count").textContent = total
 }
+
+updateCartCount()

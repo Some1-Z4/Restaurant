@@ -11,7 +11,15 @@ const burger = document.querySelector("#burger")
 const menu = document.querySelector(".header-box")
  
 burger.addEventListener("click", () => {
-    burger.classList.toggle("active")   // ← drives the X animation
+    burger.classList.toggle("active")
     menu.classList.toggle("active")
 })
 
+let resizeTimer
+window.addEventListener("resize", () => {
+    document.body.classList.add("no-transitions")
+    clearTimeout(resizeTimer)
+    resizeTimer = setTimeout(() => {
+        document.body.classList.remove("no-transitions")
+    }, 200)
+})

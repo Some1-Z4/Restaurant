@@ -130,6 +130,10 @@
     z-index: -1;
   }
 
+  .mirror-img {
+    transform: scaleX(-1);
+}
+
         .home-car-bar {
             background: #e74c3c;
             padding: 10px 40px;
