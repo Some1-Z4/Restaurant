@@ -477,8 +477,10 @@ body.no-transitions * {
 @media (max-width:480px){
 
 .top{
-    height:220px;
-    width: 100vh;
+    height: 220px;
+    width: 100%;
+    margin: 0 auto;
+    
 }
 
 .top h1{
