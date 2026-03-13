@@ -12,6 +12,11 @@
             flex-direction: column;
         }
 
+        body {
+    background-color: #f5f5f5;
+    background-color: #ead2d2;
+}
+
 
         #header {
         display: flex;
