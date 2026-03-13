@@ -170,7 +170,8 @@
 @media (max-width:1192px){
 
 .top{
-    width:95%;
+    width: 100%;
+    margin: 0 auto;
     height:350px;
 }
 
@@ -268,6 +269,8 @@ body.no-transitions * {
 
 .top{
     height:280px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .top h1{

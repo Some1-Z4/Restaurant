@@ -17,7 +17,7 @@ body {
 .top{
     height: 450px;
     width: 80%;
-    margin: 0 auto;
+    justify-self: center;
     position: relative;
     display: flex;
     justify-content: center;
