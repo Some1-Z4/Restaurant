@@ -63,6 +63,12 @@ function buildFilter() {
         </div>
 
         <div class="filter-group">
+            <label class="checkbox-label">
+                <input type="checkbox" id="spicinessNotChosen"> 🌶️ Spiciness: Not Chosen
+            </label>
+        </div>
+
+        <div class="filter-group">
             <label class="checkbox-label"><input type="checkbox" id="nutsFilter"> 🥜 No Nuts</label>
         </div>
 
@@ -77,14 +83,23 @@ function buildFilter() {
     </div>
     `
 
-    document.querySelector("#applyFilter").addEventListener("click", () => {
-        let spiciness = document.querySelector("#spicinessFilter").value
-        let nuts = document.querySelector("#nutsFilter").checked
-        let veg = document.querySelector("#vegFilter").checked
+    document.querySelector("#spicinessNotChosen").addEventListener("change", (e) => {
+        const spicinessRange = document.querySelector("#spicinessFilter")
+        const spicinessLabel = document.querySelector("#spicinessValue")
+        spicinessRange.disabled = e.target.checked
+        spicinessLabel.style.opacity = e.target.checked ? "0.4" : "1"
+    })
 
-        let url = `https://restaurant.stepprojects.ge/api/Products/GetFiltered?spiciness=${spiciness}`
-        if (nuts) url += `&nuts=false`
-        if (veg) url += `&vegeterian=true`
+    document.querySelector("#applyFilter").addEventListener("click", () => {
+        const notChosen = document.querySelector("#spicinessNotChosen").checked
+        const spiciness = document.querySelector("#spicinessFilter").value
+        const nuts = document.querySelector("#nutsFilter").checked
+        const veg = document.querySelector("#vegFilter").checked
+
+        let url = `https://restaurant.stepprojects.ge/api/Products/GetFiltered?`
+        if (!notChosen) url += `spiciness=${spiciness}`
+        if (nuts) url += `${!notChosen ? "&" : ""}nuts=false`
+        if (veg) url += `${(!notChosen || nuts) ? "&" : ""}vegeterian=true`
 
         fetch(url)
         .then(r => r.json())
@@ -93,7 +108,10 @@ function buildFilter() {
 
     document.querySelector("#resetFilter").addEventListener("click", () => {
         document.querySelector("#spicinessFilter").value = 0
+        document.querySelector("#spicinessFilter").disabled = false
         document.querySelector("#spicinessValue").textContent = 0
+        document.querySelector("#spicinessValue").style.opacity = "1"
+        document.querySelector("#spicinessNotChosen").checked = false
         document.querySelector("#nutsFilter").checked = false
         document.querySelector("#vegFilter").checked = false
 
