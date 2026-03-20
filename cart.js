@@ -4,7 +4,8 @@ async function loadCart() {
         const data = await res.json()
         renderCart(data)
     } catch (err) {
-        console.error("Failed to load cart:", err)
+        alert("Failed to load cart!")
+        console.error("Failed to load cart:", err);
     }
 }
 
@@ -70,6 +71,7 @@ async function deleteItem(productId) {
         })
         loadCart()
     } catch (err) {
+        alert("Failed to delete item!")
         console.error("Failed to delete item:", err)
     }
 }
@@ -91,6 +93,7 @@ async function updateQty(productId, newQty, price) {
         })
         loadCart()
     } catch (err) {
+        alert("Failed to update quantity!")
         console.error("Failed to update quantity:", err)
     }
 }

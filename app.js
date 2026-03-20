@@ -30,16 +30,23 @@ function productCards(el) {
 fetch("https://restaurant.stepprojects.ge/api/Categories/GetAll")
 .then(el => el.json())
 .then(data => displayCategory(data))
+.catch(err => {
+        console.error("Categories failed:", err)
+        alert("Failed to apply categories, please try again later!")
+    })
 
 function displayCategory(arr){
     arr.forEach((el) => {
         let btn = document.createElement("button")
         btn.innerText = el.name;
         btn.addEventListener("click", () =>{
-         console.log(el.id);
          fetch(`https://restaurant.stepprojects.ge/api/Categories/GetCategory/${el.id}`)
          .then((resp) => resp.json())
-         .then((data) => productCards(data.products));
+         .then((data) => productCards(data.products))
+         .catch(err => {
+        console.error("Categories failed:", err)
+        alert("Failed to apply category id, please try again later!")
+    })
         });
         buttons.appendChild(btn)
     })
@@ -48,7 +55,11 @@ function displayCategory(arr){
 all.addEventListener("click", () => {
     fetch("https://restaurant.stepprojects.ge/api/Products/GetAll")
     .then((resp) => resp.json())
-    .then((data) => productCards(data));
+    .then((data) => productCards(data))
+    .catch(err => {
+        console.error("Categories failed:", err)
+        alert("Failed to apply category id, please try again later!")
+    })
 })
 
 function buildFilter() {
@@ -104,6 +115,10 @@ function buildFilter() {
         fetch(url)
         .then(r => r.json())
         .then(data => productCards(data))
+        .catch(err => {
+        console.error("filter failed:", err)
+        alert("Failed to apply filter, please try again later!")
+        })
     })
 
     document.querySelector("#resetFilter").addEventListener("click", () => {
@@ -118,6 +133,10 @@ function buildFilter() {
         fetch("https://restaurant.stepprojects.ge/api/Products/GetAll")
         .then(r => r.json())
         .then(data => productCards(data))
+        .catch(err => {
+        console.error("filter reset failed:", err)
+        alert("Failed to reset filter, please try again later!")
+    })
     })
 }
 
@@ -129,7 +148,7 @@ async function addToCart(productId, price) {
         
         const res = await fetch("https://restaurant.stepprojects.ge/api/Baskets/GetAll")
         const items = await res.json()
-
+    
        
         const existing = items.find(item => item.product.id === productId)
 
@@ -166,6 +185,7 @@ async function addToCart(productId, price) {
         updateCartCount()
 
     } catch (err) {
+        alert("Failed to add to cart!")
         console.error("Failed to add to cart:", err)
     }
 }
