@@ -1,6 +1,9 @@
 async function loadCart() {
     try {
         const res = await fetch("https://restaurant.stepprojects.ge/api/Baskets/GetAll")
+
+        if (!res.ok) throw new Error(`Server error: ${res.status}`)
+
         const data = await res.json()
         renderCart(data)
     } catch (err) {

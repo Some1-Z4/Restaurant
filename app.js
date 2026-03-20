@@ -28,7 +28,10 @@ function productCards(el) {
 }
 
 fetch("https://restaurant.stepprojects.ge/api/Categories/GetAll")
-.then(el => el.json())
+.then(res => {
+        if (!res.ok) throw new Error(`Server error: ${res.status}`)
+        return res.json()
+    })
 .then(data => displayCategory(data))
 .catch(err => {
         console.error("Categories failed:", err)
@@ -54,7 +57,10 @@ function displayCategory(arr){
 
 all.addEventListener("click", () => {
     fetch("https://restaurant.stepprojects.ge/api/Products/GetAll")
-    .then((resp) => resp.json())
+    .then(resp => {
+        if (!resp.ok) throw new Error(`Server error: ${resp.status}`)
+        return resp.json()
+    })
     .then((data) => productCards(data))
     .catch(err => {
         console.error("Categories failed:", err)
@@ -114,6 +120,7 @@ function buildFilter() {
 
         fetch(url)
         .then(r => r.json())
+        if (!res.ok) throw new Error(`Server error: ${res.status}`)
         .then(data => productCards(data))
         .catch(err => {
         console.error("filter failed:", err)
