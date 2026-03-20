@@ -119,8 +119,10 @@ function buildFilter() {
         if (veg) url += `${(!notChosen || nuts) ? "&" : ""}vegeterian=true`
 
         fetch(url)
-        .then(r => r.json())
-        if (!res.ok) throw new Error(`Server error: ${res.status}`)
+        .then(r => {
+            if (!r.ok) throw new Error(`Server error: ${r.status}`)
+            return r.json()
+        })
         .then(data => productCards(data))
         .catch(err => {
         console.error("filter failed:", err)
