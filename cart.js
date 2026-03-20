@@ -14,6 +14,8 @@ function renderCart(items) {
     const cartFooter = document.querySelector("#cartFooter")
     const cartTable = document.querySelector("#cartTable")
     const cartCount = document.querySelector("#cartCount")
+      
+    if (!cartTable) return
 
     if (!items || items.length === 0) {
         cartTable.style.display = "none"
