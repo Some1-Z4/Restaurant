@@ -20,7 +20,7 @@
 
         #header {
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
         gap: 700px;
           align-items: center;
             padding: 0 40px;
@@ -112,7 +112,7 @@
 
         .top{
      height: 450px;
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     position: relative;
     display: flex;

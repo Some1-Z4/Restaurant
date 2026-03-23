@@ -1,3 +1,13 @@
+logout.addEventListener("click", () => {
+    localStorage.removeItem("token")
+    window.location.href = "./login.html"
+})
+
+const userPhone = localStorage.getItem("phone")
+if (userPhone) {
+    document.querySelector("#userPhone").textContent = userPhone
+}
+
 async function loadCart() {
     try {
         const res = await fetch("https://restaurant.stepprojects.ge/api/Baskets/GetAll")

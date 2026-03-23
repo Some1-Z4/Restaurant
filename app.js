@@ -1,3 +1,13 @@
+
+if(localStorage.getItem("token")==null){
+    window.location.href = "./login.html"
+}
+
+const userPhone = localStorage.getItem("phone")
+if (userPhone) {
+    document.querySelector("#userPhone").textContent = userPhone
+}
+
 let productCont = document.querySelector("#productCont")
 let filter = document.querySelector("#filter")
 
@@ -209,3 +219,10 @@ async function updateCartCount() {
 }
 
 updateCartCount()
+
+// *--------LOG OUT-------*
+
+logout.addEventListener("click", ()=>{
+    localStorage.removeItem("token")
+    window.location.href = "./login.html"
+})
